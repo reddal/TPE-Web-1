@@ -1,0 +1,421 @@
+body {
+    margin: 0;
+    background-color: #EBEBEB;
+    font-family: Arial, Helvetica, sans-serif;
+}
+header {
+    background-color: #FFF159;
+    border-bottom: 1px solid rgb(179, 177, 177);
+}
+header li {
+    padding: 10px;
+}
+.logo {
+    height: 50px;
+}
+.alinearLogo,
+.alinearBusqueda {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.barraBusqueda {
+    height: 23px;
+    width: 60%;
+}  
+.botonEnviar {
+    margin-left: 2px;
+    height: 23px;
+    border-radius: 10px;
+    background-color: white;
+}
+.botonMenu {
+    display: flex;
+    margin-top: 10px;
+    margin-bottom: 10px;
+    display: flex;
+    justify-content: center;
+    width: 100%;
+}
+.botonMenu button {
+    border: 1px solid black;
+    background-color: white;
+}
+.navegacion {
+    display: none;
+}
+.navegacion li {
+    border-top: 1px solid grey;
+}
+header li:hover {
+    background-color: #8CBBCA;
+}
+.navBar,
+.navUser,
+ul {
+    margin: 0;
+    padding-left: 0;
+}
+.mostrarMenu {
+    display: flex;
+    flex-direction: column;
+}
+
+/*Fin de header. */
+
+/*Inicia contenedor */
+.container {
+    margin: 20px;
+    border: 1px solid rgb(179, 177, 177, .5);
+    border-radius: 5px;
+}
+.container,
+.celularesHome p {
+    font-size: 16px;
+    font-weight: 300;
+    color: #666;
+}
+.container img {
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+.j4prime:hover {
+    border: 1px solid grey;
+}
+.ultimaVisita,
+.topesGama {
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+}
+.celularesHome {
+    margin: 10px;
+    border: 1px solid rgb(179, 177, 177, .5);
+    border-radius: 5px;
+    display: flex;
+    justify-content: center;
+    flex-wrap: wrap;
+    text-align: center;
+}
+.celularesHome img {
+    height: 150px;
+    width: 150px;
+    border-radius: 10px;
+    margin-right: 10px;
+    margin-top: 10px;
+}
+footer {
+    margin-top: 10px;
+    border: 1px solid grey;
+    text-align: center;
+    display: flex;
+    justify-content: space-around;
+}
+footer p {
+    color: #666;
+}
+.iconos {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.iconos img {
+    height: 40px;
+    width: 40px;
+    margin-left: 10px;
+}
+/* Fin de index */
+
+/* Comienza pagina de compra */
+.celular {
+    background-color: white;
+    display: flex;
+    flex-direction: column;
+    border: 1px solid gainsboro;
+    padding: 2%;
+}
+.celular p {
+    font-family: Arial, Helvetica, sans-serif;
+}
+.imagenproducto {
+    height: 100%;
+    width: 50%;
+}
+.carousel {
+    display: flex;
+    justify-content: space-around;
+    border: 1px solid gainsboro;
+}
+.imglast,
+.imgnext {
+    width: 38px;
+    height: 38px;
+    margin-top: 25%;
+}
+.hidden {
+    display: none;
+}
+.informacionCelular {
+    border: 1px solid gainsboro;
+    text-align: center;
+}
+.informacionCelular h1 {
+    font-size: 26px;
+    font-weight: 600;
+}
+.informacionCelular ul {
+    flex-direction: column;
+    text-align: center;
+    list-style: none;
+}
+.precio {
+    margin-top: 4%;
+    margin-bottom: 0%;
+    font-size: 44px;
+}
+.informacionCelular img {
+    height: 5%;
+    width: 10%;
+}
+.tarjetaCredito {
+    display: inline-flex;
+    justify-content: center;
+    align-items: center;
+}
+.botonComprar {
+    height: 50px;
+    width: 100px;
+    background-color: #3483fa;
+    color: white;
+    border-radius: 7px;
+}
+.botonAgregarCarrito {
+    height: 50px;
+    width: 125px;
+    background-color: white;
+    border: 1px solid #3483fa;
+    color: #3483fa;
+    border-radius: 7px;
+}
+.descripcionProducto {
+    text-align: center;
+}
+.descripcionProducto h2 {
+    text-align: left;
+    margin-left: 5%;
+}
+.descripcionProducto h3 {
+    padding: 0 24px;
+    font-weight: bold;
+}
+.descripcionProducto p {
+    margin: 0 12%;
+}      
+.caracteristicasComparacion h2 {
+    font-size: 1.17em;
+    text-align: center;
+}
+.caracteristicasComparacion img {
+    width: 50px;
+    height: 50px;
+}
+.caracteristicasComparacion table {
+    border-collapse: collapse;
+    font-size: 12px;
+    text-align: left;
+    width: 100%;
+}
+.caracteristicasComparacion td {
+    padding: 5px 10px;
+    border: 2px solid gold;
+}
+.priceMarker {
+    background-color: #8d9baf;
+}
+.tablaInteractiva {
+    margin: 10px 0 0 15% ;
+    display: flex;
+    flex-direction: column;
+}
+.tablaInteractiva button {
+    background-color: #3483fa;
+    color: black;
+    border: 0;
+    border-radius: 5px;
+}
+#borrarTabla, #celulares3 {
+    color: white;
+    background-color: rgb(143, 47, 47);
+    margin-top: 5px;
+    width: 100px;
+}
+#celulares3 {
+    color: white;
+    background-color: teal;
+}
+
+/* Fin pagina de compra */
+
+/* Inicia pagina de formulario */
+.contenedorFormulario {
+    display: flex;
+    justify-content: center;
+    margin: 10px 0 10px 0;
+}
+.formulario {
+    display: flex;
+    justify-content: center;
+    text-align: center;
+    background-color: white;
+    padding-bottom: 10px;
+    border: 1px solid gainsboro;
+    border-radius: 5px;
+}
+.problema, 
+.formulario input,
+textarea {
+    margin-top: 20px;
+}
+.verificacionVerde {
+    color: green;
+}
+.verificacionRoja {
+    color: red;
+}
+.enviarFormulario {
+    margin-bottom: 10px;
+    height: 6%;
+    width: 30%;
+    background-color: #3483fa;
+    border: 1px solid white;
+    color: white;
+    border-radius: 7px;
+}
+.verificar {
+    background-color: white;
+    color: rgb(30, 172, 30);
+    border: 1px solid green;
+    border-radius: 7PX;
+}
+
+@media only screen and (min-width: 1200px) {
+
+    
+    .barraBusqueda {
+        height: 23px;
+        width: 523px;
+    }
+    .eslogan {
+        display: flex;
+        justify-content: center;
+        padding-top: 10px;
+        align-items: center;
+    }
+    .eslogan img {
+        margin-right: 40px;
+    }
+    .navegacion {
+        display: flex;
+        justify-content: center;
+    }
+    .navegacion li {
+        border: none;
+    }
+    .navBar,
+    .navUser,
+    ul {
+        display: flex;
+        justify-content: center;
+        list-style: none;
+    }
+    .navBar,
+    .navUser,
+    li {
+        margin-right: 20px;
+        border-radius: 5px;
+    }
+    .linkContacto {
+        text-decoration: none;
+    }
+    .botonMenu {
+        display: none;
+    }
+    /* Fin del header*/
+
+    /* Empieza el contenedor */
+    .container {
+        border: none;
+    }
+    .container p {
+        font-size: 26px;
+        text-align: center;
+    }
+    .container img {
+        height: 224px;
+        width: 224px;
+    }
+    .celularesHome {
+        margin: 0;
+        height: 600px;
+        border: none;
+    }
+    .celularesHome p {
+        font-size: 26px;
+        font-weight: 300;
+        color: #666;
+    }
+    .samsungHome,
+    .huaweiHome {
+        margin-top: 10px;
+        margin-right: 20px;
+        max-width: 500px;
+        height: 560px;
+        border: 1px solid grey;
+        border-radius: 10px;
+    }
+    .celularesHome img {
+        height: 224px;
+        width: 224px;
+    }
+    /* Fin contenedor y pagina home*/
+
+    /* Inicio pagina de comprar */
+    .celular {
+        flex-direction: row;
+        justify-content: space-around;
+    }
+    .imglast,
+    .imgnext {
+        margin-top: 50%;
+    }
+    .imagenproducto {
+        width: 381px;
+        height: 500px;
+    }
+    .caracteristicasComparacion h2 {
+        text-align: center;
+    }
+    .caracteristicasComparacion img {
+        width: 154px;
+        height: 162px;
+    }
+    .caracteristicasComparacion td {
+        padding: 15px 16px;
+    }
+    .caracteristicasComparacion table {
+        font-size: 16px;      
+    }
+    .caracteristicasComparacion {
+        margin: 0 5%;
+    }
+    /* Fin pagina comprar */
+    
+    /* pagina del formulario */
+    .formulario {
+        margin-bottom: 244px;
+    }
+    /* Fin pagina formulario */
+}

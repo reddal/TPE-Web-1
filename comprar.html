@@ -1,0 +1,191 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Samgung Galaxy J4 Prime</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js"></script>
+    <script src="js/comprar.js"></script>
+    <script src="js/comportamiento_de_la_tabla.js"></script>
+</head>
+
+<body>
+    <header>
+        <section class="eslogan">
+            <div class="alinearLogo">
+                <a href="index.html"><img class="logo" src="imagenes/logo.png" alt=""></a>
+            </div>
+            <div class="alinearBusqueda">
+                <input id="busqueda" class="barraBusqueda" placeholder="Busca dispositivos, marcas y mas" type="text">
+                <button id="solicitarBusqueda" class="botonEnviar" type="button">Buscar</button>
+            </div>
+        </section>
+
+        <div id="botonMenu" class="botonMenu">
+            <button>MENU</button>
+        </div>
+
+        <nav id="navegacion" class="navegacion">
+            <div class="navBar">
+                <ul>
+                    <li>
+                        <select>
+                            <option value="">Marcas</option>
+                            <option value="">Apple</option>
+                            <option value="">Huawei</option>
+                            <option value="">Motorola</option>
+                            <option value="">Samsung</option>
+                            <option value="">LG</option>
+                            <option value="">Xiaomi</option>
+                        </select>
+                    </li>
+                    <li>Ofertas</li>
+                    <li>Mas vendidos</li>
+                    <a class="linkContacto" href="contacto.html">
+                        <li>Contacto</li>
+                    </a>
+                </ul>
+            </div>
+
+            <div class="navUser">
+                <ul>
+                    <li>Usuario</li>
+                    <li>Mis compras</li>
+                    <li id="carrito">Carrito</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <article class="celular">
+        <section class="carousel">
+            <img id="imglast" class="imglast" src="imagenes/last.png" alt="last">
+            <img id="img1" class="imagenproducto" src="imagenes/samsung/samsungj4/samsungj4prime.jpg" alt="foto">
+            <img id="img2" class="hidden" src="imagenes/samsung/samsungj4/j4.png" alt="foto2">
+            <img id="img3" class="hidden" src="imagenes/samsung/samsungj4/glass.jpg" alt="foto3">
+            <img id="imgnext" class="imgnext" src="imagenes/next.png" alt="next">
+        </section>
+        <section class="informacionCelular">
+            <h1>Samgung Galaxy J4 Prime</h1>
+            <ul>
+                <li>Liberado</li>
+                <li>Cámara trasera de 8Mpx</li>
+                <li>Cámara delantera de 5Mpx</li>
+                <li>Procesador Snapdragon 425 Quad-Core de 1.4GHz con 1GB de RAM</li>
+                <li>Batería de 3300mAh</li>
+            </ul>
+            <p class="precio" id="nuevoPrecio">$<span id="preciounitario">16999</p>
+            <label>Cantidad: <input id="cantComprar" type="number" min="1" max="10" value="1">
+                <button id="calcularPrecio">Calcular nuevo precio</button>
+                <div class="tarjetaCredito">
+                    <p>Paga con tu tarjeta!</p>
+                    <img src="imagenes/tarjetasPago/tarjetas.png" alt="">
+                </div>
+                <p>Llega entre 3 y 5 dias habiles despues de la compra, el precio del envio es de $314</p>
+                <div class="comprar">
+                    <button class="botonComprar">Comprar</button>
+                    <button class="botonAgregarCarrito">Añadir al carrito</button>
+                </div>
+        </section>
+    </article>
+
+    <article class="descripcionProducto">
+        <h2>Descripcion</h2>
+        <h3> Una pantalla más grande, mucho más para ver</h3>
+        <p> Prepárate para vivir una nueva experiencia visual. Galaxy J4+ viene con una pantalla Infinity Display de
+            6,0" con resolución HD+ y un ratio de aspecto de 18.5:9. Disfruta de tu contenido favorito allá donde vayas
+            gracias a su diseño ligero y compacto.</p>
+        <h3> Destaca del resto</h3>
+        <p>Galaxy J4+ cuenta con un diseño redondeado que encajará a la perfección en tu mano. Además, su acabado
+            brillante y su variedad de colores -rojo, negro y gris- le dan un toque de sofisticación y estilo a tu
+            smartphone.</p>
+        <h3>Te lo ponemos fácil</h3>
+        <p>Fotografía sin miedo con la cámara trasera de 13.0 megapíxeles (F1.9) y delantera de 5 megapíxeles (F2.2).
+            Además, gracias a su botón de disparo flotante será realmente sencillo , ya que podrás colocarlo en
+            cualquier parte de la pantalla.</p>
+        <h3>Una pantalla lista para multitarea</h3>
+        <p>La pantalla infinita de 6,0” con resolución HD+ de tu Galaxy J4+ es perfecta para realizar multitarea;
+            incluyendo juegos, mensajería y navegación web. Con Par de Apps es posible ver un vídeo mientras hablas con
+            tus amigos por Messenger, de forma que puedas seguir viendo sin quitar tus ojos de tus mensajes.</p>
+    </article>
+
+    <article class="caracteristicasComparacion">
+        <h2>Caracteristicas y compará con otros dispositivos</h2>
+        <table>
+            <thead>
+                <tr id="tabHeader">
+                    <th></th>
+                </tr>
+            </thead>
+            <tbody>
+                <tr id="price" class="priceMarker">
+                    <td>Precio</td>
+                </tr>
+                <tr id="dualSim">
+                    <td>Es Dual SIM</td>
+                </tr>
+                <tr id="memoria">
+                    <td>Memoria interna </td>
+                </tr>
+                <tr id="ram">
+                    <td>Memoria RAM</td>
+                </tr>
+                <tr id="Os">
+                    <td>Versión de Android</td>
+                </tr>
+            </tbody>
+        </table>
+    </article>
+    <form class="tablaInteractiva">
+        <!-- uso varios divs como gancho para estilos y script-->
+        <div id="divNewName" class="InputNewName">
+            <p>Para agregar un nuevo celular a la tabla escribe aquí el modelo y luego presiona siguiente</p>
+            <input class="inputsBorrar" type="text" id="newName" value="">
+            <button type="button" id="botonNewName">Siguiente</button>
+        </div>
+        <div id="divNewImgSrc" class="InputNewName hidden">
+            <p>Escribe aqui la ruta relativa de la imagen:</p>
+            <input class="inputsBorrar" type="text" id="newImgSrc" value="">
+            <button type="button" id="botonNewImgSrc">Siguiente</button>
+        </div>
+        <div id="divNewPrice" class="InputNewName hidden">
+            <p>Escribe aqui el valor del precio:</p>
+            <input class="inputsBorrar" type="number" id="newPrice" value="">
+            <button type="button" id="botonNewPrice">Siguiente</button>
+        </div>
+        <div id="divNewDualSim" class="InputNewName hidden">
+            <p>Tiene Dual Sim?</p>
+            <select class="inputsBorrar" name="Dualsim?" id="newDualSim" value="">
+                <option value="true">SI</option>
+                <option value="false">NO</option>
+            </select>
+            <button type="button" id="botonNewDualSim">Siguiente</button>
+        </div>
+        <div id="divNewMemoria" class="InputNewName hidden">
+            <p>Cuantos GB de memoria tiene?</p>
+            <input class="inputsBorrar" type="number" id="newMemoria" value="">
+            <button type="button" id="botonNewMemoria">Siguiente</button> </div>
+        <div id="divNewRam" class="InputNewName hidden">
+            <p>Cuantos GB de RAM tiene?</p>
+            <input class="inputsBorrar" type="number" id="newRam" value="">
+            <button type="button" id="botonNewRam">Siguiente</button>
+        </div>
+        <div id="divNewOs" class="InputNewName hidden">
+            <p>Que modelo de sistema operativo tiene?</p>
+            <input class="inputsBorrar" type="text" id="newOs" value="">
+            <button type="button" id="cargarTabla">Cargar Todo</button>
+        </div>
+        <button type="button" id="borrarTabla" class="btnBorrarTabla">Borrar tabla</button>
+        <button type="button" id="celulares3" class="btnBorrarTabla">Agregar 3 celulares</button>
+    </form>
+    <footer>
+        <p>Market Cell</p>
+        <div class="iconos">
+            <a href="https://www.facebook.com/" target="_blank"> <img src="imagenes/iconosRedesSociales/logofacebook.png" alt=""></a>
+            <a href="https://www.instagram.com/?hl=es-la" target="_blank"><img src="imagenes/iconosRedesSociales/logoinstagram.png" alt=""></a>
+            <a href="https://twitter.com/explore" target="_blank"><img src="imagenes/iconosRedesSociales/logotwitter.jpg" alt=""></a>
+    </footer>
+</body>
+</html>

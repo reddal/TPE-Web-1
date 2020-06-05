@@ -1,0 +1,99 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Contactate con nosotros</title>
+    <link rel="stylesheet" href="css/styles.css">
+    <script src="js/main.js"></script>
+    <script src="js/captcha.js"></script>
+</head>
+<body>
+    <header>
+        <section class="eslogan">
+            <div class="alinearLogo">
+                <a href="index.html"><img class="logo" src="imagenes/logo.png" alt=""></a>
+            </div>
+            <div class="alinearBusqueda">
+                <input id="busqueda" class="barraBusqueda" placeholder="Busca dispositivos, marcas y mas" type="text" required>
+                <button id="solicitarBusqueda" class="botonEnviar" type="button">Buscar</button>
+            </div>
+        </section>
+
+        <div id="botonMenu" class="botonMenu">
+            <button>MENU</button>
+        </div>
+
+        <nav id="navegacion" class="navegacion">
+            <div class="navBar">
+                <ul>
+                    <li>
+                        <select>
+                            <option value="">Marcas</option>
+                            <option value="">Apple</option>
+                            <option value="">Huawei</option>
+                            <option value="">Motorola</option>
+                            <option value="">Samsung</option>
+                            <option value="">LG</option>
+                            <option value="">Xiaomi</option>
+                        </select>
+                    </li>
+                    <li>Ofertas</li>
+                    <li>Mas vendidos</li>
+                    <a class="linkContacto" href="contacto.html">
+                        <li>Contacto</li>
+                    </a>
+                </ul>
+            </div>
+
+            <div class="navUser">
+                <ul>
+                    <li>Usuario</li>
+                    <li>Mis compras</li>
+                    <li id="carrito">Carrito</li>
+                </ul>
+            </div>
+        </nav>
+    </header>
+
+    <article class="contenedorFormulario">
+        <div class="formulario">
+            <form>
+                <label>Nombre:</label> <input type="text" required>
+                <br>
+                <label>Apellido:</label> <input type="text" required>
+                <br>
+                <label>Genero:</label> <input type="radio" name="sexo" value="masculino"/> Masculino
+                <input type="radio" name="sexo" value="femenino"/> Femenino
+                <br>
+                <label>Correo electronico:</label> <input type="text" required>
+                <br>
+                <select class="problema" required>
+                    <option>Cual es su problema?</option>
+                    <option>El producto aun no llego</option>
+                    <option>El producto llego pero no funciona correctamente</option>
+                    <option>El producto llego en mal estado</option>
+                    <option>Otro</option>
+                </select>
+                <br>
+                <textarea id="masSobreProblema" name="" cols="30" rows="10" placeholder="Detallenos mas acerca de su problema" required></textarea>
+                <br>
+                <p id="captcha">Ingresa el siguiente codigo para verificar que no eres un robot:</p> 
+                <input id="inputCaptcha" type="text">
+                <button type="button" class="verificar" id="verificarCaptcha">Verificar</button>
+                <p id="mensajeVerificacion"></p>
+                <button class="enviarFormulario" id="enviarFormulario" type="sumbit">Enviar formulario </button>
+                <p id="cancelacionDeFormulario"></p>
+            </form>
+        </div>
+    </article>
+    <footer>
+        <p>Market Cell</p>
+        <div class="iconos">
+            <a href="https://www.facebook.com/" target="_blank"> <img src="imagenes/iconosRedesSociales/logofacebook.png" alt=""></a>
+            <a href="https://www.instagram.com/?hl=es-la" target="_blank"><img src="imagenes/iconosRedesSociales/logoinstagram.png" alt=""></a>
+            <a href="https://twitter.com/explore" target="_blank"><img src="imagenes/iconosRedesSociales/logotwitter.jpg" alt=""></a>
+        </div>
+    </footer>
+</body>
+</html>
