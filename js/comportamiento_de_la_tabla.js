@@ -42,42 +42,9 @@ function iniciarPagina() {
     ]
 
 
-    // Muestro en la tabla los celulares precargados en el arreglo.
+    // Muestro en la tabla los celulares precargados en el arreglo. // Elimine un monton de codigo repetido (sugerencia defensa 2)
     for (let i = 0; i < celulares.length; i++) {
-        let newHeader = document.createElement("TH");
-        newHeader.innerHTML = "<img src=" + celulares[i].imgsrc + ">" + "<p>" + celulares[i].name + "</p>" + "</th>";
-        newHeader.classList.add("edited", "borrar");
-        document.getElementById("tabHeader").appendChild(newHeader);
-
-        let newPrice = document.createElement("TD");
-        newPrice.innerHTML = celulares[i].price;
-        newPrice.classList.add("edited", "borrar")
-        document.getElementById("price").appendChild(newPrice);
-
-        let newDualSim = document.createElement("TD");
-        if (celulares[i].dualSim) {
-            newDualSim.innerHTML = "SI";
-        }
-        else {
-            newDualSim.innerHTML = "NO";
-        }
-        newDualSim.classList.add("edited", "borrar");
-        document.getElementById("dualSim").appendChild(newDualSim);
-
-        let newMemoria = document.createElement("TD");
-        newMemoria.innerHTML = celulares[i].memoria;
-        newMemoria.classList.add("edited", "borrar");
-        document.getElementById("memoria").appendChild(newMemoria);
-
-        let newRam = document.createElement("TD");
-        newRam.innerHTML = celulares[i].ram;
-        newRam.classList.add("edited", "borrar");
-        document.getElementById("ram").appendChild(newRam);
-
-        let newOs = document.createElement("TD");
-        newOs.innerHTML = celulares[i].Os;
-        newOs.classList.add("edited", "borrar");
-        document.getElementById("Os").appendChild(newOs);
+        mostrar();
     }
 
     // aca voy a hacer que cada boton muestre el siguiente input y el ultimo cargue los datos al array y vuelva a mostrar el primero
