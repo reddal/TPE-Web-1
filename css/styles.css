@@ -33,13 +33,13 @@ header li {
     display: flex;
     margin-top: 10px;
     margin-bottom: 10px;
-    display: flex;
     justify-content: center;
     width: 100%;
 }
 .botonMenu button {
-    border: 1px solid black;
-    background-color: white;
+    background: none;
+    border: none;
+
 }
 .navegacion {
     display: none;
@@ -231,9 +231,6 @@ footer p {
 .caracteristicasComparacion td {
     padding: 5px 10px;
     border: 2px solid gold;
-}
-.priceMarker {
-    background-color: #8d9baf;
 }
 .tablaInteractiva {
     margin: 10px 0 0 15% ;
