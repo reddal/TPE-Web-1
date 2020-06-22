@@ -199,6 +199,15 @@ function iniciarPagina() {
                     newOs.innerHTML = Os;
                     newOs.classList.add("edited", "borrar");
                     document.getElementById("Os").appendChild(newOs);
+
+                    let tableFooter = document.createElement("td");
+                    tableFooter.classList.add("edited", "borrar");
+                    let borrarBtn = document.createElement("button");
+                    borrarBtn.classList.add("fa", "fa-trash");
+                    borrarBtn.Fila = i;
+                    tableFooter.appendChild(borrarBtn);
+                    document.getElementById("borrar").appendChild(tableFooter);
+                    borrarBtn.addEventListener("click", borrarFila);
                 }
             }
         }
@@ -206,11 +215,25 @@ function iniciarPagina() {
             console.log(error);
         }
     }
+    async function borrarFila() {
+        try {
+            let response = await fetch(url);
+            if (response.ok) {
+                let json = await response.json();
+                let numeroFila = this.Fila;
+                let idBorrar = json.coleccion[numeroFila]._id;
+                eliminarCelularApi(idBorrar);
+            }
+        }
+        catch (error) {
+            console.log(error);
+        }
+        mostrar()
+    }
     // Borrar toda la tabla, tambien borra TODOS los celulares de la API.
     async function borrarTabla() {
         try {
             let response = await fetch(url);
-
             if (response.ok) {
                 let json = await response.json();
                 for (let i = 0; i < json.coleccion.length; i++) {
@@ -272,15 +295,15 @@ function iniciarPagina() {
                     "headers": { "Content-Type": "application/json" },
                     "body": JSON.stringify(celulares[i])
                 });
-                if(response.ok) {
-                    mostrar();
+                if (response.ok) {
+
                 }
             }
             catch (error) {
                 console.log(error);
             }
         }
-
+        mostrar();
     }
 
     // Esta funcion carga los celulares por defecto a la API
@@ -296,13 +319,14 @@ function iniciarPagina() {
                     "body": JSON.stringify(celulares[i])
                 });
                 if (response.ok) {
-                    mostrar();
+
                 }
             }
             catch (e) {
                 console.log(e);
             }
         }
+        mostrar();
     }
 
     // Esta funcion elimina un celular de la API.
