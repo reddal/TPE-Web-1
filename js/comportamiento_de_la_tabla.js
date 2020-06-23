@@ -64,6 +64,7 @@ function iniciarPagina() {
 
     // Muestro en la tabla los celulares precargados en el arreglo. // Elimine un monton de codigo repetido (sugerencia defensa 2)
     mostrar();
+    setTimeout(function() {mostrar()}, 5000);
 
     // aca voy a hacer que cada boton muestre el siguiente input y el ultimo cargue los datos al array y vuelva a mostrar el primero
     function toogle1() {
@@ -222,13 +223,12 @@ function iniciarPagina() {
                 let json = await response.json();
                 let numeroFila = this.Fila;
                 let idBorrar = json.coleccion[numeroFila]._id;
-                eliminarCelularApi(idBorrar);
+                eliminarCelularApi(idBorrar); 
             }
         }
         catch (error) {
             console.log(error);
         }
-        mostrar()
     }
     // Borrar toda la tabla, tambien borra TODOS los celulares de la API.
     async function borrarTabla() {
@@ -339,5 +339,6 @@ function iniciarPagina() {
         catch (e) {
             console.log(e);
         }
+        mostrar();
     }
 }
