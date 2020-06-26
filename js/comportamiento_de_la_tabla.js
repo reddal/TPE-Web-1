@@ -12,7 +12,7 @@ function iniciarPagina() {
     document.getElementById("rest").addEventListener("click", cargarCelularesApi);
     document.getElementById("borrarTabla").addEventListener("click", borrarTabla);
     document.getElementById("celulares3").addEventListener("click", agregar3);
-
+    document.getElementById("btnFiltro").addEventListener("click", filtroTabla);
     //hago un arreglo de objetos "celular"
     let celulares = [
         {
@@ -166,17 +166,17 @@ function iniciarPagina() {
                     let ram = json.coleccion[i].thing.ram;
                     let Os = json.coleccion[i].thing.Os;
 
-                    let newHeader = document.createElement("TH");
+                    let newHeader = document.createElement("th");
                     newHeader.innerHTML = "<img src=" + imgsrc + ">" + "<p>" + name + "</p>" + "</th>";
                     newHeader.classList.add("edited", "borrar");
                     document.getElementById("tabHeader").appendChild(newHeader);
 
-                    let newPrice = document.createElement("TD");
+                    let newPrice = document.createElement("td");
                     newPrice.innerHTML = price;
                     newPrice.classList.add("edited", "borrar")
                     document.getElementById("price").appendChild(newPrice);
 
-                    let newDualSim = document.createElement("TD");
+                    let newDualSim = document.createElement("td");
                     if (dualSim) {
                         newDualSim.innerHTML = "SI";
                     }
@@ -186,17 +186,17 @@ function iniciarPagina() {
                     newDualSim.classList.add("edited", "borrar");
                     document.getElementById("dualSim").appendChild(newDualSim);
 
-                    let newMemoria = document.createElement("TD");
+                    let newMemoria = document.createElement("td");
                     newMemoria.innerHTML = memoria;
                     newMemoria.classList.add("edited", "borrar");
                     document.getElementById("memoria").appendChild(newMemoria);
 
-                    let newRam = document.createElement("TD");
+                    let newRam = document.createElement("td");
                     newRam.innerHTML = ram;
                     newRam.classList.add("edited", "borrar");
                     document.getElementById("ram").appendChild(newRam);
 
-                    let newOs = document.createElement("TD");
+                    let newOs = document.createElement("td");
                     newOs.innerHTML = Os;
                     newOs.classList.add("edited", "borrar");
                     document.getElementById("Os").appendChild(newOs);
@@ -340,5 +340,9 @@ function iniciarPagina() {
             console.log(e);
         }
         mostrar();
+    }
+
+    function filtroTabla () {
+
     }
 }

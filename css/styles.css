@@ -253,6 +253,14 @@ footer p {
     color: white;
     background-color: teal;
 }
+.alignFitro {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.filtro {
+    width: 200px;
+}
 
 /* Fin pagina de compra */
 
