@@ -21,8 +21,8 @@ function iniciarPagina() {
                 "imgsrc": "imagenes/samsung/samsungj4/samsungj4primepng.png",
                 "price": "$16.999",
                 "dualSim": false,
-                "memoria": "32 GB",
-                "ram": "2 GB",
+                "memoria": 32,
+                "ram": 2,
                 "Os": "8.1 Oreo"
             }
         },
@@ -32,8 +32,8 @@ function iniciarPagina() {
                 "imgsrc": "imagenes/samsung/samsunga10png.png",
                 "price": "$38.400",
                 "dualSim": false,
-                "memoria": "32 GB",
-                "ram": "2 GB",
+                "memoria": 32,
+                "ram": 2,
                 "Os": "9.0 Pie"
             }
         },
@@ -43,8 +43,8 @@ function iniciarPagina() {
                 "imgsrc": "imagenes/samsung/samsunga50png.png",
                 "price": "$40.000",
                 "dualSim": true,
-                "memoria": "64 GB",
-                "ram": "4 GB",
+                "memoria": 64,
+                "ram": 4,
                 "Os": "9.0 Pie"
             }
         },
@@ -54,8 +54,8 @@ function iniciarPagina() {
                 "imgsrc": "imagenes/samsung/samsungs10png.png",
                 "price": "$65.000",
                 "dualSim": false,
-                "memoria": "128 GB",
-                "ram": "8 GB",
+                "memoria": 128,
+                "ram": 8,
                 "Os": "9.0 Pie"
             }
         }
@@ -64,7 +64,7 @@ function iniciarPagina() {
 
     // Muestro en la tabla los celulares precargados en el arreglo. // Elimine un monton de codigo repetido (sugerencia defensa 2)
     mostrar();
-    setTimeout(function() {mostrar()}, 5000);
+    setInterval(function() {mostrar()}, 10000);
 
     // aca voy a hacer que cada boton muestre el siguiente input y el ultimo cargue los datos al array y vuelva a mostrar el primero
     function toogle1() {
@@ -116,8 +116,8 @@ function iniciarPagina() {
                     "imgsrc": imgsrc,
                     "price": "$" + price,
                     "dualSim": dualSim,
-                    "memoria": memoria + " " + "GB",
-                    "ram": ram + " " + "GB",
+                    "memoria": memoria,
+                    "ram": ram,
                     "Os": Os
                 }
             }
@@ -156,6 +156,7 @@ function iniciarPagina() {
             let response = await fetch(url);
             if (response.ok) {
                 let json = await response.json();
+                let j = 0;
 
                 for (let i = 0; i < json.coleccion.length; i++) {
                     let name = json.coleccion[i].thing.name;
@@ -166,40 +167,43 @@ function iniciarPagina() {
                     let ram = json.coleccion[i].thing.ram;
                     let Os = json.coleccion[i].thing.Os;
 
-                    let newHeader = document.createElement("th");
-                    newHeader.innerHTML = "<img src=" + imgsrc + ">" + "<p>" + name + "</p>" + "</th>";
-                    newHeader.classList.add("edited", "borrar");
-                    document.getElementById("tabHeader").appendChild(newHeader);
+                    let newHeader = document.createElement("tr");
+                    newHeader.innerHTML = "<td><img src=" + imgsrc + ">" + "<p>" + name + "</p>" + "</td>";
+                    newHeader.classList.add("edited", "borrar", "celulares-filtro");
+                    newHeader.id = "celu" + j;
+                    document.getElementById("celular").appendChild(newHeader);
 
                     let newPrice = document.createElement("td");
                     newPrice.innerHTML = price;
                     newPrice.classList.add("edited", "borrar")
-                    document.getElementById("price").appendChild(newPrice);
+                    document.getElementById("celu" + j).appendChild(newPrice);
 
                     let newDualSim = document.createElement("td");
                     if (dualSim) {
-                        newDualSim.innerHTML = "SI";
+                        newDualSim.innerHTML = "<td>SI</td>";
                     }
                     else {
-                        newDualSim.innerHTML = "NO";
+                        newDualSim.innerHTML = "<td>NO</td>";
                     }
                     newDualSim.classList.add("edited", "borrar");
-                    document.getElementById("dualSim").appendChild(newDualSim);
+                    document.getElementById("celu" + j).appendChild(newDualSim);
 
                     let newMemoria = document.createElement("td");
-                    newMemoria.innerHTML = memoria;
+                    newMemoria.innerHTML = memoria + " GB";
                     newMemoria.classList.add("edited", "borrar");
-                    document.getElementById("memoria").appendChild(newMemoria);
+                    document.getElementById("celu" + j).classList.add("memoria-"+memoria);
+                    document.getElementById("celu" + j).appendChild(newMemoria);
 
                     let newRam = document.createElement("td");
-                    newRam.innerHTML = ram;
+                    newRam.innerHTML = ram + " GB";
                     newRam.classList.add("edited", "borrar");
-                    document.getElementById("ram").appendChild(newRam);
+                    document.getElementById("celu" + j).classList.add("ram-"+ram);
+                    document.getElementById("celu" + j).appendChild(newRam);
 
                     let newOs = document.createElement("td");
                     newOs.innerHTML = Os;
                     newOs.classList.add("edited", "borrar");
-                    document.getElementById("Os").appendChild(newOs);
+                    document.getElementById("celu" + j).appendChild(newOs);
 
                     let tableFooter = document.createElement("td");
                     tableFooter.classList.add("edited", "borrar");
@@ -207,8 +211,9 @@ function iniciarPagina() {
                     borrarBtn.classList.add("fa", "fa-trash");
                     borrarBtn.Fila = i;
                     tableFooter.appendChild(borrarBtn);
-                    document.getElementById("borrar").appendChild(tableFooter);
+                    document.getElementById("celu" + j).appendChild(tableFooter);
                     borrarBtn.addEventListener("click", borrarFila);
+                    j++;
                 }
             }
         }
@@ -260,8 +265,8 @@ function iniciarPagina() {
                     "imgsrc": "imagenes/samsung/samsunga30.jpg",
                     "price": "$35.100",
                     "dualSim": false,
-                    "memoria": "32 GB",
-                    "ram": "3 GB",
+                    "memoria": 32,
+                    "ram": 3,
                     "Os": "9.0 Pie"
                 }
             },
@@ -271,8 +276,8 @@ function iniciarPagina() {
                     "imgsrc": "imagenes/huawei/p20.jpg",
                     "price": "$24.999",
                     "dualSim": true,
-                    "memoria": "32 GB",
-                    "ram": "4 GB",
+                    "memoria": 32,
+                    "ram": 4,
                     "Os": "8.0 Oreo"
                 }
             },
@@ -282,8 +287,8 @@ function iniciarPagina() {
                     "imgsrc": "imagenes/motorola/motog8.png",
                     "price": "$25.999",
                     "dualSim": false,
-                    "memoria": "32 GB",
-                    "ram": "2 GB",
+                    "memoria": 32,
+                    "ram": 2,
                     "Os": "9.0 Pie"
                 }
             });
@@ -343,6 +348,24 @@ function iniciarPagina() {
     }
 
     function filtroTabla () {
-
+        let valueUser = document.getElementById("js-filtro").value;
+        let celulares = document.getElementsByClassName("celulares-filtro");
+        for (let i = 0; i < celulares.length; i++) {
+            celulares[i].classList.remove("hidden");
+        }
+        if (document.getElementById("selectFiltro").value == "ram") {
+            for (let i = 0; i < celulares.length; i++) {
+                if (!celulares[i].classList.contains("ram-"+valueUser)) {
+                    celulares[i].classList.add("hidden");
+                }
+            }
+        }
+        if (document.getElementById("selectFiltro").value == "memoria") {
+            for (let i = 0; i < celulares.length; i++) {
+                if (!celulares[i].classList.contains("memoria-"+valueUser)) {
+                    celulares[i].classList.add("hidden");
+                }
+            }
+        }
     }
 }

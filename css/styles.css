@@ -253,6 +253,9 @@ footer p {
     color: white;
     background-color: teal;
 }
+.btnDefecto {
+    width: 200px;
+}
 .alignFitro {
     display: flex;
     justify-content: center;

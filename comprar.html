@@ -59,7 +59,6 @@
             </div>
         </nav>
     </header>
-    <button id="rest">Cargar celulares por defecto</button>
 
     <article class="celular">
         <section class="carousel">
@@ -118,32 +117,21 @@
         <table>
             <thead>
                 <tr id="tabHeader">
-                    <th></th>
+                    <th>Celular</th>
+                    <th>Precio</th>
+                    <th>Es dual SIM</th>
+                    <th>Memoria interna</th>
+                    <th>Memoria RAM</th>
+                    <th>Version de android</th>
                 </tr>
             </thead>
-            <tbody>
-                <tr id="price" class="priceMarker">
-                    <td>Precio</td>
-                </tr>
-                <tr id="dualSim">
-                    <td>Es Dual SIM</td>
-                </tr>
-                <tr id="memoria">
-                    <td>Memoria interna </td>
-                </tr>
-                <tr id="ram">
-                    <td>Memoria RAM</td>
-                </tr>
-                <tr id="Os">
-                    <td>Versión de Android</td>
-                </tr>
-                <tr id="borrar">
-                    <td> </td>
-                </tr>
+            <tbody id="celular">
+
             </tbody>
         </table>
     </article>
     <form class="tablaInteractiva">
+        <button class="btnDefecto" type="button" id="rest">Cargar celulares por defecto</button>
         <!-- uso varios divs como gancho para estilos y script-->
         <div id="divNewName" class="InputNewName">
             <p>Para agregar un nuevo celular a la tabla escribe aquí el modelo y luego presiona siguiente</p>
@@ -188,10 +176,9 @@
         <div class="alignFiltro">
             <label for="">Filtro de busqueda</label>
             <input class="filtro" type="text" id="js-filtro">
-            <select name="" id="">
+            <select name="" id="selectFiltro">
                 <option value="ram">Ram</option>
-                <option value="ram">Memoria interna</option>
-                <option value="ram">Version android</option>
+                <option value="memoria">Memoria interna</option>
             </select>
             <button type="button" id="btnFiltro">Filtrar</button>
         </div>
