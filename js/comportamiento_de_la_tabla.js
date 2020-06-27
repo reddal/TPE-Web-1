@@ -13,6 +13,7 @@ function iniciarPagina() {
     document.getElementById("borrarTabla").addEventListener("click", borrarTabla);
     document.getElementById("celulares3").addEventListener("click", agregar3);
     document.getElementById("btnFiltro").addEventListener("click", filtroTabla);
+    document.getElementById("js-quitarFiltro").addEventListener("click", quitarFiltros);
     //hago un arreglo de objetos "celular"
     let celulares = [
         {
@@ -64,7 +65,7 @@ function iniciarPagina() {
 
     // Muestro en la tabla los celulares precargados en el arreglo. // Elimine un monton de codigo repetido (sugerencia defensa 2)
     mostrar();
-    setInterval(function() {mostrar()}, 10000);
+    //setInterval(function() {mostrar()}, 10000);
 
     // aca voy a hacer que cada boton muestre el siguiente input y el ultimo cargue los datos al array y vuelva a mostrar el primero
     function toogle1() {
@@ -156,27 +157,69 @@ function iniciarPagina() {
             let response = await fetch(url);
             if (response.ok) {
                 let json = await response.json();
-                let j = 0;
 
                 for (let i = 0; i < json.coleccion.length; i++) {
                     let name = json.coleccion[i].thing.name;
+                    let nameInput = document.createElement("input");
+                    nameInput.id = "name" + i;
+                    nameInput.placeholder = "nombre";
+                    nameInput.classList.add("hidden");
                     let imgsrc = json.coleccion[i].thing.imgsrc;
+                    let imgsrcInput = document.createElement("input");
+                    imgsrcInput.id = "imgsrc" + i;
+                    imgsrcInput.placeholder = "ruta de imagen"
+                    imgsrcInput.classList.add("hidden");
                     let price = json.coleccion[i].thing.price;
+                    let priceInput = document.createElement("input")
+                    priceInput.id = "price" + i;
+                    priceInput.placeholder = "precio"
+                    priceInput.type = "number";
+                    priceInput.classList.add("hidden");
                     let dualSim = json.coleccion[i].thing.dualSim;
+                    let dualSimInput = document.createElement("select");
+                    let option1 = document.createElement("option")
+                    option1.innerHTML = "SI";
+                    option1.value = true;
+                    let option2 = document.createElement("option");
+                    option2.innerHTML = "NO";
+                    option2.value = false;
+                    dualSimInput.appendChild(option1);
+                    dualSimInput.appendChild(option2);
+                    dualSimInput.id = "dualSim" + i;
+                    dualSimInput.classList.add("hidden");
                     let memoria = json.coleccion[i].thing.memoria;
+                    let memoriaInput = document.createElement("input");
+                    memoriaInput.id = "memoria" + i;
+                    memoriaInput.type = "number";
+                    memoriaInput.placeholder = "memoria";
+                    memoriaInput.classList.add("hidden");
                     let ram = json.coleccion[i].thing.ram;
+                    let ramInput = document.createElement("input");
+                    ramInput.id = "ram" + i;
+                    ramInput.placeholder = "ram";
+                    ramInput.type = "number";
+                    ramInput.classList.add("hidden");
                     let Os = json.coleccion[i].thing.Os;
+                    let OsInput = document.createElement("input");
+                    OsInput.id = "Os" + i;
+                    OsInput.placeholder = "Sistema Operativo";
+                    OsInput.classList.add("hidden");
 
                     let newHeader = document.createElement("tr");
-                    newHeader.innerHTML = "<td><img src=" + imgsrc + ">" + "<p>" + name + "</p>" + "</td>";
+                    newHeader.fila = i;
+                    newHeader.innerHTML = "<td class=" + "edit" + i + "><img src=" + imgsrc + ">" + "<p>" + name + "</p>" + "</td>";
                     newHeader.classList.add("edited", "borrar", "celulares-filtro");
-                    newHeader.id = "celu" + j;
+                    newHeader.id = "celu" + i;
+                    newHeader.firstChild.appendChild(nameInput);
+                    newHeader.firstChild.appendChild(imgsrcInput);
                     document.getElementById("celular").appendChild(newHeader);
+
 
                     let newPrice = document.createElement("td");
                     newPrice.innerHTML = price;
-                    newPrice.classList.add("edited", "borrar")
-                    document.getElementById("celu" + j).appendChild(newPrice);
+                    newPrice.classList.add("edited", "borrar","edit" + i)
+                    newPrice.appendChild(priceInput);
+                    document.getElementById("celu" + i).appendChild(newPrice);
 
                     let newDualSim = document.createElement("td");
                     if (dualSim) {
@@ -185,35 +228,49 @@ function iniciarPagina() {
                     else {
                         newDualSim.innerHTML = "<td>NO</td>";
                     }
-                    newDualSim.classList.add("edited", "borrar");
-                    document.getElementById("celu" + j).appendChild(newDualSim);
+                    newDualSim.classList.add("edited", "borrar","edit" + i);
+                    newDualSim.appendChild(dualSimInput);
+                    document.getElementById("celu" + i).appendChild(newDualSim);
 
                     let newMemoria = document.createElement("td");
                     newMemoria.innerHTML = memoria + " GB";
-                    newMemoria.classList.add("edited", "borrar");
-                    document.getElementById("celu" + j).classList.add("memoria-"+memoria);
-                    document.getElementById("celu" + j).appendChild(newMemoria);
+                    newMemoria.classList.add("edited", "borrar","edit" + i);
+                    newMemoria.appendChild(memoriaInput);
+                    document.getElementById("celu" + i).classList.add("memoria-" + memoria);
+                    document.getElementById("celu" + i).appendChild(newMemoria);
 
                     let newRam = document.createElement("td");
                     newRam.innerHTML = ram + " GB";
-                    newRam.classList.add("edited", "borrar");
-                    document.getElementById("celu" + j).classList.add("ram-"+ram);
-                    document.getElementById("celu" + j).appendChild(newRam);
+                    newRam.classList.add("edited", "borrar","edit" + i);
+                    newRam.appendChild(ramInput);
+                    document.getElementById("celu" + i).classList.add("ram-" + ram);
+                    document.getElementById("celu" + i).appendChild(newRam);
 
                     let newOs = document.createElement("td");
                     newOs.innerHTML = Os;
-                    newOs.classList.add("edited", "borrar");
-                    document.getElementById("celu" + j).appendChild(newOs);
+                    newOs.classList.add("edited", "borrar","edit" + i);
+                    newOs.appendChild(OsInput);
+                    document.getElementById("celu" + i).appendChild(newOs);
 
                     let tableFooter = document.createElement("td");
-                    tableFooter.classList.add("edited", "borrar");
+                    tableFooter.classList.add("edited", "borrar","edit" + i);
+                    let editBtn = document.createElement("button");
+                    editBtn.classList.add("fas", "fa-edit");
+                    editBtn.celuID = json.coleccion[i]._id;
+                    let buttonSubmit = document.createElement("button");
+                    buttonSubmit.id = "submit" + i;
+                    buttonSubmit.fila = i;
+                    buttonSubmit.classList.add("hidden");
+                    buttonSubmit.innerHTML = "enviar";
                     let borrarBtn = document.createElement("button");
                     borrarBtn.classList.add("fa", "fa-trash");
                     borrarBtn.Fila = i;
+                    tableFooter.appendChild(buttonSubmit);
                     tableFooter.appendChild(borrarBtn);
-                    document.getElementById("celu" + j).appendChild(tableFooter);
+                    tableFooter.appendChild(editBtn);
+                    document.getElementById("celu" + i).appendChild(tableFooter);
                     borrarBtn.addEventListener("click", borrarFila);
-                    j++;
+                    editBtn.addEventListener("click", function () { editCelularAPI(editBtn.celuID, i) });
                 }
             }
         }
@@ -228,7 +285,7 @@ function iniciarPagina() {
                 let json = await response.json();
                 let numeroFila = this.Fila;
                 let idBorrar = json.coleccion[numeroFila]._id;
-                eliminarCelularApi(idBorrar); 
+                eliminarCelularApi(idBorrar);
             }
         }
         catch (error) {
@@ -347,7 +404,7 @@ function iniciarPagina() {
         mostrar();
     }
 
-    function filtroTabla () {
+    function filtroTabla() {
         let valueUser = document.getElementById("js-filtro").value;
         let celulares = document.getElementsByClassName("celulares-filtro");
         for (let i = 0; i < celulares.length; i++) {
@@ -355,17 +412,51 @@ function iniciarPagina() {
         }
         if (document.getElementById("selectFiltro").value == "ram") {
             for (let i = 0; i < celulares.length; i++) {
-                if (!celulares[i].classList.contains("ram-"+valueUser)) {
+                if (!celulares[i].classList.contains("ram-" + valueUser)) {
                     celulares[i].classList.add("hidden");
                 }
             }
         }
         if (document.getElementById("selectFiltro").value == "memoria") {
             for (let i = 0; i < celulares.length; i++) {
-                if (!celulares[i].classList.contains("memoria-"+valueUser)) {
+                if (!celulares[i].classList.contains("memoria-" + valueUser)) {
                     celulares[i].classList.add("hidden");
                 }
             }
         }
+    }
+    function quitarFiltros() {
+        let celulares = document.getElementsByClassName("celulares-filtro");
+        for (let i = 0; i < celulares.length; i++) {
+            celulares[i].classList.remove("hidden");
+        }
+        event.preventDefault();
+    }
+    async function editCelularAPI(id, fila) {
+        let celu = document.getElementsByClassName("edit"+ fila);
+        console.log(celu);
+        let data = {
+            "thing": {
+                "name": "Samsung J4 Prime",
+                "imgsrc": "imagenes/samsung/samsungj4/samsungj4primepng.png",
+                "price": "$16.999",
+                "dualSim": false,
+                "memoria": 32,
+                "ram": 2,
+                "Os": "8.1 Oreo"
+            }
+        }
+        try {
+            await fetch(url + "/" + id, {
+                "method": "PUT",
+                "mode": 'cors',
+                "headers": { "Content-Type": "application/json" },
+                "body": JSON.stringify(data)
+            })
+        }
+        catch (e) {
+            console.log(e);
+        }
+        mostrar();
     }
 }
