@@ -163,18 +163,18 @@ function iniciarPagina() {
                     let nameInput = document.createElement("input");
                     nameInput.id = "name" + i;
                     nameInput.placeholder = "nombre";
-                    nameInput.classList.add("hidden");
+                    nameInput.classList.add("hidden", "edit" + i);
                     let imgsrc = json.coleccion[i].thing.imgsrc;
                     let imgsrcInput = document.createElement("input");
                     imgsrcInput.id = "imgsrc" + i;
                     imgsrcInput.placeholder = "ruta de imagen"
-                    imgsrcInput.classList.add("hidden");
+                    imgsrcInput.classList.add("hidden", "edit" + i);
                     let price = json.coleccion[i].thing.price;
                     let priceInput = document.createElement("input")
                     priceInput.id = "price" + i;
                     priceInput.placeholder = "precio"
                     priceInput.type = "number";
-                    priceInput.classList.add("hidden");
+                    priceInput.classList.add("hidden", "edit" + i);
                     let dualSim = json.coleccion[i].thing.dualSim;
                     let dualSimInput = document.createElement("select");
                     let option1 = document.createElement("option")
@@ -186,28 +186,28 @@ function iniciarPagina() {
                     dualSimInput.appendChild(option1);
                     dualSimInput.appendChild(option2);
                     dualSimInput.id = "dualSim" + i;
-                    dualSimInput.classList.add("hidden");
+                    dualSimInput.classList.add("hidden", "edit" + i);
                     let memoria = json.coleccion[i].thing.memoria;
                     let memoriaInput = document.createElement("input");
                     memoriaInput.id = "memoria" + i;
                     memoriaInput.type = "number";
                     memoriaInput.placeholder = "memoria";
-                    memoriaInput.classList.add("hidden");
+                    memoriaInput.classList.add("hidden", "edit" + i);
                     let ram = json.coleccion[i].thing.ram;
                     let ramInput = document.createElement("input");
                     ramInput.id = "ram" + i;
                     ramInput.placeholder = "ram";
                     ramInput.type = "number";
-                    ramInput.classList.add("hidden");
+                    ramInput.classList.add("hidden", "edit" + i);
                     let Os = json.coleccion[i].thing.Os;
                     let OsInput = document.createElement("input");
                     OsInput.id = "Os" + i;
                     OsInput.placeholder = "Sistema Operativo";
-                    OsInput.classList.add("hidden");
+                    OsInput.classList.add("hidden", "edit" + i);
 
                     let newHeader = document.createElement("tr");
                     newHeader.fila = i;
-                    newHeader.innerHTML = "<td class=" + "edit" + i + "><img src=" + imgsrc + ">" + "<p>" + name + "</p>" + "</td>";
+                    newHeader.innerHTML = `<td><img class="edit${i}" src="${imgsrc}"> <p class="edit${i}"> ${name}</p> </td>`;
                     newHeader.classList.add("edited", "borrar", "celulares-filtro");
                     newHeader.id = "celu" + i;
                     newHeader.firstChild.appendChild(nameInput);
@@ -216,61 +216,74 @@ function iniciarPagina() {
 
 
                     let newPrice = document.createElement("td");
-                    newPrice.innerHTML = price;
-                    newPrice.classList.add("edited", "borrar","edit" + i)
+                    let priceSpan = document.createElement("span");
+                    priceSpan.innerHTML = price;
+                    priceSpan.classList.add("edit" + i);
+                    newPrice.classList.add("edited", "borrar");
                     newPrice.appendChild(priceInput);
+                    newPrice.appendChild(priceSpan);
                     document.getElementById("celu" + i).appendChild(newPrice);
 
                     let newDualSim = document.createElement("td");
                     if (dualSim) {
-                        newDualSim.innerHTML = "<td>SI</td>";
+                        newDualSim.innerHTML = `<span class="edit${i}"> SI </span>`;
                     }
                     else {
-                        newDualSim.innerHTML = "<td>NO</td>";
+                        newDualSim.innerHTML = `<span class="edit${i}"> NO </span>`;
                     }
-                    newDualSim.classList.add("edited", "borrar","edit" + i);
+                    newDualSim.classList.add("edited", "borrar");
                     newDualSim.appendChild(dualSimInput);
                     document.getElementById("celu" + i).appendChild(newDualSim);
 
                     let newMemoria = document.createElement("td");
-                    newMemoria.innerHTML = memoria + " GB";
-                    newMemoria.classList.add("edited", "borrar","edit" + i);
+                    let memoriaSpan = document.createElement("span");
+                    memoriaSpan.innerHTML = memoria + " GB";
+                    memoriaSpan.classList.add("edit" + i);
+                    newMemoria.classList.add("edited", "borrar");
                     newMemoria.appendChild(memoriaInput);
+                    newMemoria.appendChild(memoriaSpan);
                     document.getElementById("celu" + i).classList.add("memoria-" + memoria);
                     document.getElementById("celu" + i).appendChild(newMemoria);
 
                     let newRam = document.createElement("td");
-                    newRam.innerHTML = ram + " GB";
-                    newRam.classList.add("edited", "borrar","edit" + i);
+                    let ramSpan = document.createElement("span")
+                    ramSpan.innerHTML = ram + " GB";
+                    ramSpan.classList.add("edit" + i);
+                    newRam.classList.add("edited", "borrar");
+                    newRam.appendChild(ramSpan);
                     newRam.appendChild(ramInput);
                     document.getElementById("celu" + i).classList.add("ram-" + ram);
                     document.getElementById("celu" + i).appendChild(newRam);
 
                     let newOs = document.createElement("td");
-                    newOs.innerHTML = Os;
-                    newOs.classList.add("edited", "borrar","edit" + i);
+                    let osSpan = document.createElement("span");
+                    osSpan.innerHTML = Os;
+                    osSpan.classList.add("edit" + i);
+                    newOs.classList.add("edited", "borrar");
                     newOs.appendChild(OsInput);
+                    newOs.appendChild(osSpan);
                     document.getElementById("celu" + i).appendChild(newOs);
 
                     let tableFooter = document.createElement("td");
-                    tableFooter.classList.add("edited", "borrar","edit" + i);
+                    tableFooter.classList.add("edited", "borrar");
                     let editBtn = document.createElement("button");
-                    editBtn.classList.add("fas", "fa-edit");
+                    editBtn.classList.add("fas", "fa-edit", "edit" + i);
                     editBtn.celuID = json.coleccion[i]._id;
                     let buttonSubmit = document.createElement("button");
                     buttonSubmit.id = "submit" + i;
                     buttonSubmit.fila = i;
-                    buttonSubmit.classList.add("hidden");
+                    buttonSubmit.classList.add("hidden", "edit" + i);
                     buttonSubmit.innerHTML = "enviar";
                     let borrarBtn = document.createElement("button");
-                    borrarBtn.classList.add("fa", "fa-trash");
+                    borrarBtn.classList.add("fa", "fa-trash", "edit" + i);
                     borrarBtn.Fila = i;
                     tableFooter.appendChild(buttonSubmit);
                     tableFooter.appendChild(borrarBtn);
                     tableFooter.appendChild(editBtn);
                     document.getElementById("celu" + i).appendChild(tableFooter);
                     borrarBtn.addEventListener("click", borrarFila);
-                    editBtn.addEventListener("click", function () { editCelularAPI(editBtn.celuID, i) });
+                    editBtn.addEventListener("click", function () { editMode(i) });
+                    buttonSubmit.addEventListener("click", function () { editCelularAPI(editBtn.celuID, i) });
                 }
             }
         }
@@ -432,26 +445,31 @@ function iniciarPagina() {
         }
         event.preventDefault();
     }
-    async function editCelularAPI(id, fila) {
-        let celu = document.getElementsByClassName("edit"+ fila);
-        console.log(celu);
-        let data = {
-            "thing": {
-                "name": "Samsung J4 Prime",
-                "imgsrc": "imagenes/samsung/samsungj4/samsungj4primepng.png",
-                "price": "$16.999",
-                "dualSim": false,
-                "memoria": 32,
-                "ram": 2,
-                "Os": "8.1 Oreo"
-            }
+    function editMode(fila) {
+        let celu = document.getElementsByClassName("edit" + fila);
+        for (let i = 0; i < celu.length; i++) {
+            let tableCell = celu[i];
+            tableCell.classList.toggle("hidden");
         }
+    }
+    async function editCelularAPI(id,fila) {
+        celulares.push ( {
+            "thing": {
+                "name": document.getElementById(`name${fila}`).value,
+                "imgsrc": document.getElementById(`imgsrc${fila}`).value,
+                "price": document.getElementById(`price${fila}`).value,
+                "dualSim": document.getElementById(`dualSim${fila}`).value,
+                "memoria": document.getElementById(`memoria${fila}`).value,
+                "ram": document.getElementById(`ram${fila}`).value,
+                "Os": document.getElementById(`Os${fila}`).value
+            }
+        });
         try {
             await fetch(url + "/" + id, {
                 "method": "PUT",
                 "mode": 'cors',
                 "headers": { "Content-Type": "application/json" },
-                "body": JSON.stringify(data)
+                "body": JSON.stringify(celulares[celulares.length-1])
             })
         }
         catch (e) {
@@ -460,3 +478,4 @@ function iniciarPagina() {
         mostrar();
     }
 }
+
